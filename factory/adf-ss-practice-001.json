@@ -1,0 +1,9 @@
+{
+	"name": "adf-ss-practice-001",
+	"location": "centralindia",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9964c977-f345-49df-aa52-505e8cc01522",
+		"tenantId": "64a9fa8e-6de5-4e3d-a962-ffbbb1f48153"
+	}
+}
