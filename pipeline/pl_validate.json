@@ -10,7 +10,10 @@
 				"typeProperties": {
 					"dataset": {
 						"referenceName": "DelimitedText3",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"FileName": "employees.csv"
+						}
 					},
 					"timeout": "0.12:00:00",
 					"sleep": 10

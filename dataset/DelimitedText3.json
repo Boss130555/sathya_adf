@@ -5,12 +5,17 @@
 			"referenceName": "ls_adlsGen2",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"FileName": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "DelimitedText",
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "customers.csv",
+				"fileName": "employees.csv",
 				"fileSystem": "input"
 			},
 			"columnDelimiter": ",",
