@@ -47,7 +47,7 @@
 				"          country as string,",
 				"          created_date as string",
 				"     ),",
-				"     partitionFileNames:['df.output'],",
+				"     partitionFileNames:['df_output.csv'],",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
