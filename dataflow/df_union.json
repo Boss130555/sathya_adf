@@ -1,0 +1,72 @@
+{
+	"name": "df_union",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_union_source1",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_union_source2",
+						"type": "DatasetReference"
+					},
+					"name": "source2"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_union_source3",
+						"type": "DatasetReference"
+					},
+					"name": "source3"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "union1"
+				},
+				{
+					"name": "aggregate1"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          student_id as string,",
+				"          student_name as string,",
+				"          branch as string,",
+				"          marks as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source1",
+				"source(output(",
+				"          student_id as string,",
+				"          student_name as string,",
+				"          branch as string,",
+				"          marks as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source2",
+				"source(output(",
+				"          student_id as string,",
+				"          student_name as string,",
+				"          branch as string,",
+				"          marks as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> source3",
+				"source1, source2, source3 union(byName: true)~> union1",
+				"union1 aggregate(groupBy(student_name),",
+				"     max_marks = max(marks)) ~> aggregate1"
+			]
+		}
+	}
+}

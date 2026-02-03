@@ -1,0 +1,41 @@
+{
+	"name": "ds_union_source1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_adlsGen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "students_branch_a.csv",
+				"folderPath": "union",
+				"fileSystem": "input"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "student_id",
+				"type": "String"
+			},
+			{
+				"name": "student_name",
+				"type": "String"
+			},
+			{
+				"name": "branch",
+				"type": "String"
+			},
+			{
+				"name": "marks",
+				"type": "String"
+			}
+		]
+	}
+}
